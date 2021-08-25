@@ -1,9 +1,9 @@
 ### Hi there 👋/ Olá eu sou Richard Lima
 
-- 🔭 I’m currently working on e-commerce aplication/ estou trabalhando em uma aplicação e-commerce
-- 🌱 I’m currently learning python/ estou no momento estudando python
-- ⚡ Fun fact: I really like go to gym and make me stronger :sweat_smile:/ eu gosto muito de ir para academia me fazer ficar mais forte 
-- 📫 How to reach me: richard.esclima@gmail.com / email para contato: richard.esclima@gmail.com
+- 🔭 I’m currently working on e-commerce aplication/ Estou trabalhando em uma aplicação e-commerce
+- 🌱 I’m currently learning python/ Estou no momento estudando python
+- ⚡ Fun fact: I really like go to gym and make me stronger :sweat_smile:/ Eu gosto muito de ir para academia me fazer ficar mais forte 
+- 📫 How to reach me: richard.esclima@gmail.com / Email para contato: richard.esclima@gmail.com
 - 😄 Pronoun(s): He / pronome(s): Ele
  <div>
   <a href="https://github.com/limarich">
