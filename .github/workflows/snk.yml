@@ -1,0 +1,337 @@
+Ir para o conteúdo
+Procurar...
+
+Conecte-se
+Criar Conta
+
+29
+
+7
+
+34
+
+Imagem da capa de Como habilitar as ações do GitHub no README de seu perfil para um gráfico de contribuição comedor de cobras 🐍
+Como habilitar as ações do GitHub no README do seu perfil para um gráfico de contribuição comedor de cobras 🐍
+# github # markdown # código aberto # tutorial
+
+Michelle Mannering
+28/06 ・Atualizado em28/07 ・ 4 min de leitura
+GitHub Like a Boss (série de 11 partes)
+1
+Leiame do GitHub para um código fácil de entender
+2
+Usando a CLI do GitHub para atualizar seu repo
+...
+Mais 7 partes ...
+10
+Como construir formulários semelhantes a HTML com GitHub
+11
+Como usar as páginas do GitHub para hospedar seu site, mesmo com vários repositórios
+Muitas pessoas têm falado e compartilhado seus READMEs de perfil do GitHub. Foi um projeto que lançamos no ano passado e os desenvolvedores estão adorando. Conforme esse recurso se tornava mais popular, mais desenvolvedores construíam modelos, plug-ins e aplicativos para você usar em seu perfil.
+
+Este post da Supritha chamou minha atenção. Gosto da maneira como eles falam sobre vários trechos de código para ter em seu README de perfil do GitHub.
+
+supritha 
+Como ter um perfil incrível no GitHub?
+Supritha Ravishankar ・ 8 de junho ・ 5 min de leitura
+#github #markdown #opensource #git
+Um dos comentários de Guillaume Falourd apontou para um projeto muito legal de Platane .
+
+Logotipo do GitHub Platane / snk
+🟩⬜ Gera um jogo de cobra a partir de um gráfico de contribuições do usuário do github e gera uma captura de tela como svg ou gif animado
+snk
+Mercado GitHub definições de tipo estilo de código
+
+Gera um jogo de cobra a partir de um gráfico de contribuições do usuário do github
+
+
+
+Puxe o gráfico de contribuição de um usuário do github Faça um jogo de cobra, gere um caminho de cobra onde as células são comidas de forma ordenada.
+
+Gere uma imagem GIF ou SVG .
+
+Disponível como ação github. Gere automaticamente uma nova imagem no final do dia. O que contribui para um ótimo leia-me de perfil do github
+
+Uso
+ação github
+
+- usa : Platane / snk @ master 
+  com :
+     # nome de usuário github para ler o gráfico de contribuição (** obrigatório **) 
+    # usando contexto de ação var `github.repository_owner` ou usuário especificado 
+    github_user_name : $ {{github.repository_owner}}
+
+    # caminho do arquivo gif gerado 
+    # Se deixado em branco, o arquivo gif não será gerado 
+    gif_out_path : dist / github-snake.gif
+
+    # caminho do arquivo svg gerado 
+    # Se deixado em branco, o arquivo svg não será gerado 
+    svg_out_path : dist / github-snake.svg
+exemplo com cron job
+
+demonstração interativa
+
+
+platane.github.io/snk
+
+local
+
+npm install
+npm
+…
+Ver no GitHub
+Ele usa o GitHub Actions para construir e atualizar o gráfico de contribuição de um usuário e, em seguida, faz uma cobra devorar todas as suas contribuições. A saída gera um arquivo gif, que você pode mostrar em seu README de perfil do GitHub. Achei isso muito legal, então comecei a adicionar isso ao meu perfil.
+
+Etapa 1. Configurando ações do GitHub
+A primeira coisa que você deseja garantir, antes de iniciar este projeto, é ter as ações do GitHub configuradas. Vá para o seu Perfil e verifique se a guia "Ações" está disponível. Todos agora devem ter esse recurso.
+
+Botão de Ações
+
+Em seguida, vá para Platane's Action (disponível no Marketplace) e faça uma cópia do código. Você precisará adicionar este snippet ao seu arquivo Actions.
+
+Etapa 2. Criando seu arquivo yaml de ações do GitHub
+Esta é definitivamente a parte em que fiquei preso. Ao examinar o código, não tinha certeza de onde adicionar as linhas de código mencionadas no Marketplace .
+
+Depois de observar como o Platane configurou o arquivo Actions, consegui gerar o código (com uma ajudinha de Bdougie, é claro).
+
+Eu adicionei o trecho de código completo abaixo e adicionei muitos comentários (espero que seja fácil de entender).
+
+Você pode copiar esse código diretamente para um arquivo * .yml em branco. Certifique-se de criar um novo arquivo * .yml no seguinte diretório:
+
+YOUR_GITHUB_USERNAME -> .github -> workflows -> FILE_NAME.yml
+
+# GitHub Action for generating a contribution graph with a snake eating your contributions.
+
+name: Generate Snake
+
+# Controls when the action will run. This action runs every 6 hours.
+
+on:
+  schedule:
+      # every 6 hours
+    - cron: "0 */6 * * *"
+
+# This command allows us to run the Action automatically from the Actions tab.
+  workflow_dispatch:
+
+# The sequence of runs in this workflow:
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Checks repo under $GITHUB_WORKSHOP, so your job can access it
+      - uses: actions/checkout@v2
+
+    # Generates the snake  
+      - uses: Platane/snk@master
+        id: snake-gif
+        with:
+          github_user_name: mishmanners
+          # these next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+     # show the status of the build. Makes it easier for debugging (if there's any issues).
+      - run: git status
+
+      # Push the changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
+
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          # the output branch we mentioned above
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+Etapa 3. Executar ações do GitHub
+Depois de adicionar o código acima e confirmá-lo, vá para a guia Actions. Em "Fluxos de trabalho", você deve ver a ação "Gerar cobra" criada acima.
+
+Fluxo de Trabalho
+
+Clique em "Executar Fluxo de Trabalho" e observe a execução do fluxo de trabalho. Você pode até expandir seu fluxo de trabalho e ver o que está acontecendo em tempo real.
+
+Ações em execução
+
+Assim que seu fluxo de trabalho terminar a execução, você deve ter recebido uma marca de seleção verde ✅ "build". Em caso afirmativo, isso significa que seu Action está funcionando bem. Caso contrário, você terá que examinar o código e ver onde estão os erros. O status "build" deve fornecer alguma indicação de onde estão seus erros. Você também pode compará-lo com o arquivo yaml em meu README de perfil do GitHub .
+
+Construir verde
+
+Se você tem a "construção" verde, então você deve estar pronto para começar. Volte para o diretório "Code" do seu repo e altere seu branch para "output". Aqui você encontrará as duas versões de seu gráfico de contribuição com a cobra comendo: um * .gif e um * .svg. A coisa boa sobre esses arquivos é que o arquivo é regravado sempre que o Action é executado. Assim, seu gráfico de contribuição estará sempre atualizado.
+
+CodeOutput
+
+Etapa 4. Adicionar uma cobra comedora de contribuições ao seu perfil
+Agora, o conjunto final é adicionar isso ao seu perfil. Pegue a localização do arquivo do seu * .gif. Deve ser algo como:
+
+https://github.com/YOUR_USERNAME/YOUR_USERNAME/blob/output/github-contribution-grid-snake.gif
+
+Adicione isso ao seu perfil copiando o local do arquivo em uma nova linha em seu arquivo de marcação:
+
+![snake gif](https://github.com/YOUR_USERNAME/YOUR_USERNAME/blob/output/github-contribution-grid-snake.gif)
+
+Agora você deve ter uma cobra realmente legal comendo suas contribuições!
+
+SnakeEating
+
+Esperamos que este guia tenha sido útil para você e forneça uma boa base para começar a construir e adicionar mais ações ao seu perfil. O que você adicionou ao README de seu perfil do GitHub? Outras há outras ações legais que eu deveria estar olhando?
+
+GitHub Like a Boss (série de 11 partes)
+1
+Leiame do GitHub para um código fácil de entender
+2
+Usando a CLI do GitHub para atualizar seu repo
+...
+Mais 7 partes ...
+10
+Como construir formulários semelhantes a HTML com GitHub
+11
+Como usar as páginas do GitHub para hospedar seu site, mesmo com vários repositórios
+Discussão (3)
+Se inscrever
+foto
+Adicione à discussão
+ 
+imagem de perfil do software
+Michael Jentsch
+•
+9 de julho
+
+Ótimo tutorial! Funciona para mim.
+Aqui está o meu - github.com/msoftware
+
+
+2
+ gostos
+Responder
+ 
+imagem de perfil de shasank27
+Shasank Periwal
+•
+8 de agosto • Editado sobre 8 de agosto
+
+Ótimo tutorial!
+Mas alguém pode me ajudar, não está mostrando todas as minhas contribuições
+github.com/shasank27/shasank27
+
+
+1
+ gostar
+Responder
+ 
+imagem de perfil adityamangal1
+Aditya Mangal
+•
+22 de julho
+
+Tutorial incrível! 🐍
+
+
+Gostar
+Responder
+Código de Conduta • Denunciar abuso
+Leia a seguir
+imagem de perfil devneto
+Como criar um relacionamento muitos para muitos personalizado no TypeORM
+Miguel - 3 de agosto
+
+imagem do perfil imomaliev
+Criação de modelo de vite vue ts: instruções de instalação, notificações dependabot e licença
+Sardorbek Imomaliev - 3 de agosto
+
+imagem de perfil de rshalford
+Como melhorar o gerenciador de pacotes Arch Linux
+Richard Halford - 13 de agosto
+
+imagem de perfil gsin11
+Dia 1 - Sua primeira semana em NodeJS
+Gurpreet Singh - 12 de agosto
+
+
+Michelle Mannering
+Seguir
+Relações com o desenvolvedor | Hackathon Queen | Gerente de Comunidade
+LOCALIZAÇÃO
+Austrália
+TRABALHAR
+Gerente de comunidade de desenvolvedores no GitHub
+INGRESSOU
+28/05/2020
+Mais de Michelle Mannering
+Você sabia que o GitHub tem um aplicativo móvel ?!
+# github # mobile # produtividade
+Como usar as páginas do GitHub para hospedar seu site, mesmo com vários repositórios
+# github # tutorial # webdev
+Como construir formulários semelhantes a HTML com GitHub
+# github # tutorial
+
+# GitHub Action for generating a contribution graph with a snake eating your contributions.
+
+name: Generate Snake
+
+# Controls when the action will run. This action runs every 6 hours.
+
+on:
+  schedule:
+      # every 6 hours
+    - cron: "0 */6 * * *"
+
+# This command allows us to run the Action automatically from the Actions tab.
+  workflow_dispatch:
+
+# The sequence of runs in this workflow:
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Checks repo under $GITHUB_WORKSHOP, so your job can access it
+      - uses: actions/checkout@v2
+
+    # Generates the snake  
+      - uses: Platane/snk@master
+        id: snake-gif
+        with:
+          github_user_name: mishmanners
+          # these next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+     # show the status of the build. Makes it easier for debugging (if there's any issues).
+      - run: git status
+
+      # Push the changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
+
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          # the output branch we mentioned above
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+Comunidade DEV - Uma rede social construtiva e inclusiva para desenvolvedores de software. Com você em cada etapa de sua jornada.
+
+Construído no Forem - o software de código aberto que alimenta o DEV e outras comunidades inclusivas.
+
+Feito com amor e Ruby on Rails . Comunidade DEV © 2016 - 2021.
