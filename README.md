@@ -1,7 +1,7 @@
 ### Hi there 👋/ Olá eu sou Richard Lima
 
 - 🔭 I’m currently working on e-commerce aplication/ Estou trabalhando em uma aplicação e-commerce
-- 🌱 I’m currently learning python/ Estou no momento estudando python
+- 🌱 I’m currently learning nodejs e react/ Estou no momento estudando nodejs e react
 - ⚡ Fun fact: I really like go to gym and make me stronger :sweat_smile:/ Eu gosto muito de ir para academia me fazer ficar mais forte 
 - 📫 How to reach me: richard.esclima@gmail.com / Email para contato: richard.esclima@gmail.com
 - 😄 Pronoun(s): He / pronome(s): Ele
@@ -16,6 +16,9 @@
   <img align="center" alt="rich-HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
   <img align="center" alt="rich-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
   <img align="center" alt="rich-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+ <img align="center" alt="rich-MongoD" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
+ <img align="center" alt="rich-Mysql" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
+ <img align="center" alt="rich-react" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
 </div>
   
   ##
@@ -26,7 +29,9 @@
   <a href = "mailto:contatorichard.esclima@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
   <a href="https://www.linkedin.com/in/richard-lima-488b451a8" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
  
-
+ <p align="center"> Visitas </p>
+<p align="center">   <img alingn="center" src="https://profile-counter.glitch.me/limarich/count.svg" /></p>
+ 
   ![Snake animation](https://github.com/limarich/limarich/blob/output/github-contribution-grid-snake.svg)
 </div>
 
