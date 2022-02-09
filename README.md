@@ -1,5 +1,5 @@
 ### Hi there 👋/ Olá eu sou Richard Lima
-
+ ![](https://komarev.com/ghpvc/?username=limarich&label=PROFILE+VIEWS&color=blueviolet)
 - 🔭 I’m currently working on e-commerce aplication/ Estou trabalhando em uma aplicação e-commerce
 - 🌱 I’m currently learning nodejs e react/ Estou no momento estudando nodejs e react
 - ⚡ Fun fact: I really like go to gym and make me stronger :sweat_smile:/ Eu gosto muito de ir para academia me fazer ficar mais forte 
@@ -28,9 +28,6 @@
  <a href="https://discord.gg/Limarich#7309" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" target="_blank"></a> 
   <a href = "mailto:contatorichard.esclima@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
   <a href="https://www.linkedin.com/in/richard-lima-488b451a8" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
- 
- <p align="center"> Visitas </p>
-<p align="center">   <img alingn="center" src="https://profile-counter.glitch.me/limarich/count.svg" /></p>
  
   ![Snake animation](https://github.com/limarich/limarich/blob/output/github-contribution-grid-snake.svg)
 </div>
