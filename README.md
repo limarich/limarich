@@ -1,5 +1,5 @@
-### Hi there 👋/ Olá eu sou Richard Lima
- ![](https://komarev.com/ghpvc/?username=limarich&label=PROFILE+VIEWS&color=blueviolet)
+### Hi there 👋/ Olá eu sou Richard Lima  ![](https://komarev.com/ghpvc/?username=limarich&label=PROFILE+VIEWS&color=blueviolet)
+
 - 🔭 I’m currently working on e-commerce aplication/ Estou trabalhando em uma aplicação e-commerce
 - 🌱 I’m currently learning nodejs e react/ Estou no momento estudando nodejs e react
 - ⚡ Fun fact: I really like go to gym and make me stronger :sweat_smile:/ Eu gosto muito de ir para academia me fazer ficar mais forte 
